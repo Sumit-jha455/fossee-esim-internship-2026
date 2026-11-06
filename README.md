@@ -1,10 +1,10 @@
 # 🚀 FOSSEE Internship 2026 — My Open Source Journey
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Internship-FOSSEE%202026-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Organization-IIT%20Bombay-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Focus-eSim%20%7C%20Automation-success?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Status-Ongoing-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Internship-FOSSEE%202026-blue?style=for-the-badge" alt="FOSSEE Internship 2026" />
+  <img src="https://img.shields.io/badge/Organization-IIT%20Bombay-orange?style=for-the-badge" alt="IIT Bombay" />
+  <img src="https://img.shields.io/badge/Project-eSim-success?style=for-the-badge" alt="eSim Project" />
+  <img src="https://img.shields.io/badge/Status-Ongoing-brightgreen?style=for-the-badge" alt="Ongoing Internship" />
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 Welcome to my **FOSSEE Semester Long Internship – Autumn 2026** repository!
 
-I'm **Sumit Kumar Jha**, a Computer Science and Engineering student, and this repository documents my technical journey, contributions, research, experiments, challenges, and progress throughout the internship.
+I'm **Sumit Kumar Jha**, a Computer Science and Engineering student. This repository documents my technical journey, research, experiments, implementation work, testing activities, challenges, and progress throughout the internship.
 
 This is more than a collection of daily updates. It is a record of how I approach real-world software engineering problems, investigate existing systems, understand unfamiliar codebases, test solutions, and continuously improve my development skills.
 
@@ -54,6 +54,8 @@ Areas explored include:
 - GHDL backend validation.
 - Icarus Verilog and VVP validation.
 - Co-simulation dependency checks.
+- HDL parsing and port extraction.
+- Process lifecycle management.
 - Cross-platform automated testing.
 
 ---
@@ -79,15 +81,21 @@ Areas explored include:
 fossee-esim-internship-2026/
 │
 ├── daily-updates/
-│   ├── Day 01 - ...
-│   ├── Day 02 - ...
+│   ├── day-01-...
+│   ├── day-02-...
 │   ├── ...
-│   ├── Day 36 - Windows Compatibility Investigation
-│   ├── Day 37 - Actual Windows Toolchain Diagnostic
-│   ├── Day 38 - Windows Toolchain Test Investigation
-│   ├── Day 39 - GHDL Backend Test Fixes
-│   ├── Day 40 - Icarus Verilog and libvvp Test Fixes
-│   └── Day 41 - Toolchain Test Suite Validation
+│   ├── day-36-windows-compatibility-toolchain-investigation.md
+│   ├── day-37-actual-windows-toolchain-diagnostic.md
+│   ├── day-38-windows-toolchain-test-investigation.md
+│   ├── day-39-ghdl-backend-test-fixes.md
+│   ├── day-40-icarus-libvvp-test-fixes.md
+│   ├── day-41-toolchain-test-suite-validation.md
+│   ├── day-42-windows-maker-suite-investigation.md
+│   ├── day-43-hdlparse-python313-compatibility.md
+│   ├── day-44-hdl-structure-and-port-parsing.md
+│   ├── day-45-toolchaincheck-windows-test-fixtures.md
+│   ├── day-46-maker-suite-and-process-lifecycle-validation.md
+│   └── day-47-final-review-and-documentation-plan.md
 │
 ├── eSim/
 │   └── eSim source code and development workspace
@@ -101,45 +109,65 @@ fossee-esim-internship-2026/
 └── README.md
 ```
 
-*The daily-updates folder contains individual progress reports. The eSim folder contains the working source-code checkout.*
+*The `daily-updates/` folder contains individual internship progress reports. The `eSim/` folder contains the working source-code checkout.*
 
 ---
 
 ## 📈 Technical Progress & Milestones
 
 ### Milestone 1 — Understanding the eSim Codebase
+
 - Explored the project structure and important modules.
 - Studied the existing testing infrastructure.
 - Identified relevant components for the major task.
+- Studied the eSim circuit simulation workflow.
 
 ### Milestone 2 — Testing and Environment Investigation
-- Set up the local development environment.
-- Executed different module-level test suites.
-- Investigated Windows-specific testing behaviour.
-- Checked the availability and configuration of simulation tools.
 
-### Milestone 3 — Windows Toolchain Investigation
+- Set up the local Python development environment.
+- Installed and configured testing dependencies.
+- Executed existing project validation tests.
+- Investigated simulation utilities and data extraction tests.
+- Examined frontend and backend testing infrastructure.
+
+### Milestone 3 — Existing Module Validation
+
+- Executed project path regression tests.
+- Executed model cache regression tests.
+- Investigated process lifecycle functionality.
+- Executed simulation utility and mathematical utility tests.
+- Documented test results and identified compatibility issues.
+
+### Milestone 4 — Windows Toolchain Investigation
+
 - Investigated `ToolchainCheck.py` and `CosimConfig.py`.
 - Examined Windows executable resolution.
-- Verified MSYS2 and MinGW tool detection.
-- Compared actual Windows toolchain behaviour with automated test fixtures.
+- Verified the actual Windows simulation toolchain.
+- Investigated MSYS2 and MinGW tool detection.
+- Examined GHDL backend requirements.
+- Investigated Icarus Verilog, VVP and libvvp validation.
+- Compared actual toolchain behaviour with automated test fixtures.
 
-### Milestone 4 — Improving Test Reliability
+### Milestone 5 — Improving Test Reliability
+
 - Updated GHDL backend tests using mocks.
 - Improved Icarus Verilog and libvvp validation tests.
 - Updated toolchain test fixtures for Windows compatibility.
-- Validated toolchain requirement checks.
+- Improved HDL port extraction fallback handling.
+- Investigated legacy HDL parser compatibility with Python 3.13.
+- Improved process lifecycle tests using cross-platform Python subprocesses.
+- Added cleanup safeguards for process-based tests.
 
-### Milestone 5 — Toolchain Test Validation
+### Milestone 6 — Maker Test-Suite Validation
 
-**Latest verified result:**
+**Latest major verified testing milestone:**
 
 ```text
-Test File: src/maker/tests/test_toolchain_check.py
+Test Suite: src/maker/tests/
 
-Total Tests: 15
-Passed:      15
-Failed:       0
+Total Passed: 570
+Skipped:       10
+Failed:         0
 
 Status: SUCCESS
 ```
@@ -147,47 +175,50 @@ Status: SUCCESS
 Command used:
 
 ```powershell
-python -m pytest src/maker/tests/test_toolchain_check.py -v
+python -m pytest src/maker/tests/ -v --tb=short
 ```
 
-All 15 tests passed successfully in the Windows environment.
+The Maker test suite completed successfully in the Windows environment.
 
-*This result applies to the specified test file, not the entire eSim test suite.*
+**Important:** This result applies specifically to `src/maker/tests/`, not the complete eSim repository.
 
 ---
 
-## Windows Compatibility Investigation – Progress Through Day 47
+## 🪟 Windows Compatibility Investigation — Progress Through Day 46
 
-**Period:** 2–7 November 2026  
-**Major Task:** Automation Circuit/Tasks Verification Strategy
+**Period:** 26 October – 6 November 2026
 
-Continued investigating Windows compatibility issues in the eSim test suite, focusing on Maker modules, HDL parsing, simulation toolchain validation and process lifecycle management.
+Continued investigating Windows compatibility issues in the eSim test suite, focusing on Maker modules, HDL parsing, simulation toolchain validation, and process lifecycle management.
 
-### Key Contributions
+### 1. Maker Test-Suite Investigation
 
-#### 1. Maker Test-Suite Investigation
 - Investigated Windows-specific test failures and dependency-related collection issues.
-- Examined platform-specific assumptions in test fixtures and external-tool execution.
+- Examined platform-specific assumptions in test fixtures.
+- Identified problems involving external-tool execution on Windows.
 
-#### 2. HDL Parser Dependency Compatibility
-- Investigated the legacy hdlparse package compatibility issue with Python 3.13.
-- Applied a local workaround inside the Python virtual environment.
-- Verified Verilog and VHDL parser imports.
+### 2. HDL Parser Dependency Compatibility
 
-#### 3. HDL Structure and Port Parsing
+- Investigated the legacy `hdlparse` package compatibility issue with Python 3.13.
+- Applied a temporary compatibility workaround inside the local Python virtual environment.
+- Verified successful imports of Verilog and VHDL parser modules.
+
+### 3. HDL Structure and Port Parsing
+
 - Improved port extraction fallback handling.
 - Used regex-derived information to recover missing port widths.
 - Validated parameter-dependent port widths and testbench generation.
 
-#### 4. ToolchainCheck Windows Compatibility
+### 4. ToolchainCheck Windows Compatibility
+
 - Updated platform-specific fake toolchain fixtures.
 - Added Windows executable naming and MSYS2/MinGW directory layouts.
 - Improved unit-test coverage for GHDL backend detection and libvvp validation.
 
-#### 5. Process Lifecycle Testing
+### 5. Process Lifecycle Testing
+
 - Replaced Unix-specific process commands with Python interpreter subprocesses.
 - Added cleanup safeguards to prevent child processes from remaining active after test failures.
-- Validated Popen and QProcess lifecycle behaviour.
+- Validated `subprocess.Popen` and `QProcess` lifecycle behaviour.
 
 ### Verified Test Results
 
@@ -199,22 +230,13 @@ Continued investigating Windows compatibility issues in the eSim test suite, foc
 | ToolchainCheck tests | 15 passed |
 | Process lifecycle tests | 8 passed |
 
-### Current Status
+*These are results from separate test executions. They should not be added together to calculate a total test count.*
 
-The reported Maker test-suite execution completed without failures on Windows.
+### Implementation Note
 
-The 570 passed and 10 skipped result applies specifically to the Maker test suite, not the complete eSim repository.
+The `hdlparse` compatibility workaround was applied only to the local virtual environment. It was not committed as an eSim source-code or dependency-file change.
 
-The hdlparse compatibility workaround was applied only to the local virtual environment and was not committed as an eSim source-code or dependency-file change.
-
-### Follow-up Work
-- Complete the review of all modified files.
-- Perform any remaining regression checks.
-- Document unresolved compatibility limitations.
-- Continue coordination with the internship mentor.
-- Maintain daily GitHub progress documentation.
-
-**Day 47 documentation and final-review status should be updated after the day's actual work is completed.**
+---
 
 ## 📅 Daily Development Log
 
@@ -226,10 +248,10 @@ Each daily update may include:
 - Technical investigation.
 - Implementation and testing.
 - Errors encountered and debugging.
-- Results and observations.
+- Test results and observations.
 - Next steps.
 
-📁 Explore the [`daily-updates`](./daily-updates) folder for the development history.
+📁 Explore the [`daily-updates`](./daily-updates) folder for the complete development history.
 
 ---
 
@@ -312,12 +334,17 @@ Special thanks to my internship mentor and the FOSSEE team for their guidance, f
 
 ## 📌 Current Status
 
-**Internship:** FOSSEE Semester Long Internship – Autumn 2026  
-**Project:** eSim  
-**Major Task:** Automation Circuit/Tasks Verification Strategy  
-**Current Focus:** Windows Compatibility & Automated Test Reliability  
-**Latest Verified Milestone:** 15/15 Toolchain Tests Passed  
-**Development Status:** Ongoing
+| Detail | Information |
+|---|---|
+| Internship | FOSSEE Semester Long Internship – Autumn 2026 |
+| Organization | FOSSEE, IIT Bombay |
+| Project | eSim |
+| Major Task | Automation Circuit/Tasks Verification Strategy |
+| Current Focus | Windows Compatibility & Automated Test Reliability |
+| Latest Verified Milestone | Maker test suite: 570 passed, 10 skipped |
+| Development Status | Ongoing |
+
+**Next Focus:** Continue module-wise integrity testing, review Windows compatibility changes, and document remaining findings based on mentor guidance.
 
 ---
 
