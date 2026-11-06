@@ -156,6 +156,66 @@ All 15 tests passed successfully in the Windows environment.
 
 ---
 
+## Windows Compatibility Investigation – Progress Through Day 47
+
+**Period:** 2–7 November 2026  
+**Major Task:** Automation Circuit/Tasks Verification Strategy
+
+Continued investigating Windows compatibility issues in the eSim test suite, focusing on Maker modules, HDL parsing, simulation toolchain validation and process lifecycle management.
+
+### Key Contributions
+
+#### 1. Maker Test-Suite Investigation
+- Investigated Windows-specific test failures and dependency-related collection issues.
+- Examined platform-specific assumptions in test fixtures and external-tool execution.
+
+#### 2. HDL Parser Dependency Compatibility
+- Investigated the legacy hdlparse package compatibility issue with Python 3.13.
+- Applied a local workaround inside the Python virtual environment.
+- Verified Verilog and VHDL parser imports.
+
+#### 3. HDL Structure and Port Parsing
+- Improved port extraction fallback handling.
+- Used regex-derived information to recover missing port widths.
+- Validated parameter-dependent port widths and testbench generation.
+
+#### 4. ToolchainCheck Windows Compatibility
+- Updated platform-specific fake toolchain fixtures.
+- Added Windows executable naming and MSYS2/MinGW directory layouts.
+- Improved unit-test coverage for GHDL backend detection and libvvp validation.
+
+#### 5. Process Lifecycle Testing
+- Replaced Unix-specific process commands with Python interpreter subprocesses.
+- Added cleanup safeguards to prevent child processes from remaining active after test failures.
+- Validated Popen and QProcess lifecycle behaviour.
+
+### Verified Test Results
+
+| Validation | Result |
+|---|---:|
+| Complete Maker test suite | 570 passed, 10 skipped |
+| HDL structure tests | 39 passed |
+| Port parsing tests | 5 passed |
+| ToolchainCheck tests | 15 passed |
+| Process lifecycle tests | 8 passed |
+
+### Current Status
+
+The reported Maker test-suite execution completed without failures on Windows.
+
+The 570 passed and 10 skipped result applies specifically to the Maker test suite, not the complete eSim repository.
+
+The hdlparse compatibility workaround was applied only to the local virtual environment and was not committed as an eSim source-code or dependency-file change.
+
+### Follow-up Work
+- Complete the review of all modified files.
+- Perform any remaining regression checks.
+- Document unresolved compatibility limitations.
+- Continue coordination with the internship mentor.
+- Maintain daily GitHub progress documentation.
+
+**Day 47 documentation and final-review status should be updated after the day's actual work is completed.**
+
 ## 📅 Daily Development Log
 
 Every working day is documented separately to maintain a transparent record of progress.
